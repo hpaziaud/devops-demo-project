@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Building a DevOps CI/CD Pipeline Locally: GitHub, Jenkins, Maven, SonarQube, Docker, DockerHub, ArgoCD, Helm, Kubernetes, Prometheus, Grafana, Filebeat, OpenSearch, and Kibana
 
 
@@ -48,3 +49,7 @@ We welcome contributions! If you have ideas for enhancements or find any issues,
 This project is licensed under the [MIT License](LICENSE).
 
 Happy Coding! 🚀
+=======
+# DevOps Demo Project
+# devops-demo-project
+>>>>>>> d4871d7a9148f92590b5be705f055e41a8310d37
