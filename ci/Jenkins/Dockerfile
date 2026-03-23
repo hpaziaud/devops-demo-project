@@ -1,6 +1,7 @@
 # Dockerfile
 
-FROM jenkins/jenkins:lts-jdk17
+#FROM jenkins/jenkins:lts-jdk17
+FROM eclipse-temurin:17-jdk-jammy
 
 # Switch to root to install Maven and Docker
 USER root
@@ -19,8 +20,5 @@ RUN apt-get update && \
     sudo usermod -a -G docker jenkins
 
 # Expose Jenkins port
-<<<<<<< HEAD
 EXPOSE 8080
-=======
-EXPOSE 8080
->>>>>>> d4871d7a9148f92590b5be705f055e41a8310d37
+
