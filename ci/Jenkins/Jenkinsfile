@@ -40,14 +40,16 @@ pipeline {
     }
     stage('Update Deployment File') {
       steps {
-        sh '''
-          git config user.email "paziaud.hassan@gmail.com"
-          git config user.name "hpaziaud"
-          sed -i "s/tag: .*/tag: \\"${build_version}\\"/" helm/app/values.yaml
-          git add helm/app/values.yaml
-          git diff --cached --quiet && echo "Rien a commiter" || git commit -m "Update deployment image to version ${build_version}"
-          git push https://hpaziaud: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@github.com/hpaziaud/devops-demo-project HEAD:main
-        '''
+        withCredentials([string(credentialsId: 'github', variable: 'GIT_TOKEN')]) {
+          sh '''
+            git config user.email "paziaud.hassan@gmail.com"
+            git config user.name "hpaziaud"
+            sed -i "s/tag: .*/tag: \\"${build_version}\\"/" helm/app/values.yaml
+            git add helm/app/values.yaml
+            git diff --cached --quiet && echo "Rien a commiter" || git commit -m "Update deployment image to version ${build_version}"
+            git push https://hpaziaud:${GIT_TOKEN}@github.com/hpaziaud/devops-demo-project HEAD:main
+          '''
+        }
       }
     }
   }
